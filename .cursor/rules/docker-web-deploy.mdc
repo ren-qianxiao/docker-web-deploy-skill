@@ -1,0 +1,18 @@
+---
+description: Deploy any Dockerized website (zip + Dockerfile/docker-compose) on Windows, macOS or Linux
+globs: ["**/*"]
+alwaysApply: true
+---
+
+When the user asks to run, deploy, or troubleshoot a Docker website project:
+
+1. Read `AGENTS.md` in this repository and follow its workflow.
+2. Start with `python scripts/deploy.py check`; do not assume Docker/WSL are ready.
+3. Ask before installing software, changing system settings, or stopping processes.
+4. Extract with `python scripts/deploy.py extract "<zip>"`; never overwrite an existing directory.
+5. Inspect with `python scripts/deploy.py inspect "<project_root>"` to get services and host port.
+6. Start with `docker compose up -d --build` inside the project root.
+7. Verify with `python scripts/deploy.py verify --url "http://localhost:<port>"`.
+8. On failure, read `references/troubleshooting.md` and match the error text.
+
+Never modify the project source. Never expose the service publicly without explicit consent.
